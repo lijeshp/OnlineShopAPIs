@@ -1,0 +1,199 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Onlineshop</title>
+    <meta name="description" content="">
+    <meta name="robots" content="noindex, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
+
+    <!-- all css here -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/chosen.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/meanmenu.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+</head>
+
+<body>
+    <!-- header start -->
+    <header class="header-area gray-bg clearfix">
+        <div class="header-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="logo">
+                            <a href="index.html">
+                                ONLINESHOP
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-6">
+                        <div class="header-bottom-right">
+                            <div class="main-menu">
+                                <nav>
+                                    <ul>
+                                        <li class="top-hover"><a href="/">home</a></li>
+                                        <li class="top-hover"><a href="{% url 'register' %}">Register</a></li>
+                                        <li class="top-hover"><a href="{% url 'login' %}">Login</a></li>
+                                        <li><a href="contact.html">contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-menu-area">
+                    <div class="mobile-menu">
+                        <nav id="mobile-menu-active">
+                            <ul class="menu-overflow">
+                                <li><a href="/">HOME</a></li>
+                                <li class="top-hover"><a href="{% url 'register' %}">Register</a></li>
+                                <li class="top-hover"><a href="{% url 'login' %}">Login</a></li>
+                                <li><a href="contact.html">contact</a></li>
+                            </ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+    <!-- Breadcrumb Area Start -->
+    <div class="breadcrumb-area bg-image-3 ptb-150">
+        <div class="container">
+            <div class="breadcrumb-content text-center">
+                <h3>Login</h3>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li class="active">Login</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Area End -->
+    <div class="login-register-area ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 ml-auto mr-auto">
+                    <div class="login-register-wrapper">
+                        <div class="login-register-tab-list nav">
+                            <a data-toggle="tab" href="#lg1">
+                                <h4> login </h4>
+                            </a>
+
+                        </div>
+                        <div class="tab-content">
+                            <div id="lg1" class="tab-pane active">
+                                <div class="login-form-container">
+                                    <div class="login-register-form">
+                                        <form action="login" id ="login" method="POST">
+                                            {% csrf_token %}
+                                            <p id="msg"></p>
+                                            <input type="text" name="username" id="username" placeholder="Username">
+                                            <input type="password" name="password" id="password" placeholder="Password">
+                                            <div class="button-box text-center">
+
+                                                <button type="submit"><span>Login</span></button>
+                                            </div>
+                                        </form>
+                                        <div>
+                                            {% for message in messages %}
+                                            <h3>{{message}}</h3>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer style Start -->
+    <footer class="footer-area pt-75 gray-bg-3">
+
+        <div class="footer-bottom pb-25 pt-25 gray-bg-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright text-center">
+                            <p><a target="_blank" href="/">Onlineshop</a></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer style End -->
+
+
+    <!-- all js here -->
+    <script src="{% static 'js/vendor/jquery-1.12.0.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/ajax-mail.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- ajax call start here -->
+    <script>
+        $(document).on('submit','#login',function(e){
+            e.preventDefault();
+    
+            $.ajax({
+                type:'POST',
+                url:"{% url 'login' %}",
+                data:{
+                    username:$('#username').val(),
+                    password:$('#password').val(),
+                    csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+                    
+                },
+                success:function(response){
+                    console.log(response.status)
+                    $('#msg').text(response.status)
+                    $('#msg').addClass("p-2");
+                    if (response.status == "user logged in successfully"){
+                        $('#msg').addClass('bg-success')
+                        window.location="{% url 'index' %}";
+                    }
+                    else{
+
+                        $('#msg').addClass('bg-danger')
+                        $('#login')[0].reset();
+                        // $(':input','#login')
+                        // .not(':reset')
+                        // .val('')
+                        // .removeAttr('password')
+                        // .removeAttr('selected'); 
+                    }  
+                }
+
+            });
+        });
+    </script>
+</body>
+</html>

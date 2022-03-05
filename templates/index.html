@@ -1,0 +1,331 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Onlines</title>
+    <meta name="description" content="">
+    <meta name="robots" content="noindex, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
+
+    <!-- all css here -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/chosen.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/meanmenu.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+</head>
+
+<body>
+
+
+    <style>
+        .dropbtn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            height: 50px;
+            width: 100px;
+            padding-left: 0px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            padding-left: 20px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+
+        .abcd {
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
+    <!-- header start -->
+    <header class="header-area gray-bg clearfix">
+        <div class="header-bottom"><br>
+
+
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-4 col-6">
+
+                        <div class="logo">
+
+                            <a href="/">
+                                ONLINESHOP
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-6">
+                        <div class="header-bottom-right">
+                            <div class="main-menu">
+                                <nav>
+                                    <ul>
+                                        <li class="top-hover"><a href="/">home</a></li>
+
+                                        {% if user.is_authenticated %}
+                                        <li><a href="{% url 'cart-details' %}"><i class="fa fa-shopping-cart"
+                                                    style="font-size:20px;color:black;"></i><sup
+                                                    style="font-size:17px"><b>{{item_c}}</b></sup></a></li>
+                                        <li style="color: blue;">
+                                            <h4>Hello {{user.username}}</h4>
+                                        </li>
+
+                                        
+                                        {% endif %}
+                                    </ul>
+                                </nav>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="mobile-menu-area">
+                    <div class="mobile-menu">
+                        <nav id="mobile-menu-active">
+                            <ul class="menu-overflow">
+                                <li><a href="/">HOME</a></li>
+                                <li class="top-hover"><a href="{% url 'register' %}">Register</a></li>
+                                <li class="top-hover"><a href="{% url 'login' %}">Login</a></li>
+                                <li><a href="">contact</a></li>
+                               
+
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+    <!-- Slider Start -->
+
+    <div class="slider-area">
+        <div class="slider-active owl-dot-style owl-carousel">
+            <div class="single-slider ptb-240 bg-img"
+                style="background-image:url({% static 'img/slider/slider-1.jpg' %})">
+                <div class="container">
+
+                    <div class="slider-content slider-animated-1">
+                        <h1 class="animated">Welcome To <span class="theme-color">Shop</span></h1>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Slider End -->
+    <!-- Product Area Start -->
+    <div class="product-area bg-image-1 pt-100 pb-95">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- <div>
+                        <div class="dropdown">
+                            <button class="dropbtn">Filter</button>
+                            <div class="dropdown-content">
+                                <a href="/">All</a>
+                                {% for i in cat %}
+                                <a href={{i.get_url}}>{{i.name}}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div> -->
+
+                </div>
+            </div>
+            <div class="product-top-bar section-border mb-55">
+                <div class="section-title-wrap text-center">
+                    <h3 class="section-title">Products</h3>
+                </div>
+            </div>
+
+        <div class="row">
+                <div class="dropdown">
+                    <button class="dropbtn" text-allign:left>Filter</button>
+                    <div class="dropdown-content">
+                        <a href="/">All</a>
+                        {% for j in result %}
+                        <a href="{{j.get_url}}">{{j.name}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% for i in results %}
+                <div class="col-md-3">
+                    <div class="">
+
+                        <div class="product-img">
+
+                            <a href="{% url 'details' i.slug i.id %}">
+
+                                <img alt="" style="width:285px;height:250px;" src="{{i.img}}">
+                            </a>
+
+                        </div>
+
+                        <div class="product-content text-left">
+                            <div class="product-hover-style">
+                                <div class="product-title">
+                                    <h4>
+                                        <a href={{i.name.url}}>{{i.name}}</a>
+                                    </h4>
+                                </div>
+
+                            </div>
+                            <div class="product-price-wrapper">
+                                <span>${{i.price}} -</span>
+                                <span class="product-price-old">$120.00 </span>
+
+                            </div>
+
+                            <div class="product-price-wrapper">
+                                <span>{{i.paid_or_free}} </span>
+                            </div>
+                            <div class="text-center pt-3">
+                                <a href={{i.get_url}}><button class="cart_btn">Cart</button></a><br><br>
+                            </div><br>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Product Area End -->
+
+    <!-- New Products Start -->
+    <!-- <div class="product-area gray-bg pt-90 pb-65">
+        <div class="container">
+            <div class="product-top-bar section-border mb-55">
+                <div class="section-title-wrap text-center">
+                    <h3 class="section-title">Paid Products</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                {% for i in obj1 %}
+                <div class="col-md-3">
+                    <div class="">
+                        <div class="product-img">
+                            <a href={{i.get_url}}>
+                                <img alt="" style="width:285px;height:250px;" src="{{i.img.url}}">
+                            </a>
+    
+                        </div>
+    
+                        <div class="product-content text-left">
+                            <div class="product-hover-style">
+                                <div class="product-title">
+                                    <h4>
+                                        <a href={{i.get_url}}>{{i.name}}</a>
+                                    </h4>
+                                </div>
+    
+                            </div>
+                            <div class="product-price-wrapper">
+                                <span>${{i.price}}-</span>
+                                <span class="product-price-old">$120.00 </span>
+    
+                            </div>
+                            <div class="text-center pt-3">
+                                <button class="cart_btn">Cart</button><br><br>
+                            </div><br>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+            
+        </div>
+    </div> -->
+    <!-- New Products End -->
+
+
+    <!-- Footer style Start -->
+    <footer class="footer-area pt-75 gray-bg-3">
+
+        <div class="footer-bottom pb-25 pt-25 gray-bg-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright text-center">
+                            <p><a target="_blank" href="">Onlineshop</a></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer style End -->
+    <center>
+        {% for p in pro.paginator.page_range %}
+        <a href="?page={{p}}" class="btn btn-light btn-sm {% if pro.number == p %} active {% endif %}">{{p}}</a>
+        {% endfor %}
+    </center>
+
+    <!-- all js here -->
+    <script src="{% static 'js/vendor/jquery-1.12.0.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js '%}"></script>
+    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/ajax-mail.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+<br>
+<br><br><br>
+
+</html>
